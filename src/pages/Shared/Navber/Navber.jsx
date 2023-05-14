@@ -10,9 +10,7 @@ const Navber = () => {
 
     const handleLogout = () => {
         logOut()
-        .then(() => {
-            
-        })
+        .then()
         .catch(error => console.log(error))
     }
 

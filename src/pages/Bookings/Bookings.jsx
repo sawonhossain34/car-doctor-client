@@ -10,7 +10,7 @@ const Bookings = () => {
     const [bookings,setBookings] = useState([]);
     const navigate = useNavigate();
 
-    const url = `http://localhost:5000/bookings?email=${user?.email}`
+    const url = `https://car-doctor-server-two-gilt.vercel.app/bookings?email=${user?.email}`
     useEffect( () => {
         fetch(url,{
           method:"GET",
@@ -30,7 +30,7 @@ const Bookings = () => {
 
             
         })
-    } ,[url])
+    } ,[url,navigate])
 
     const handleDelete = id => {
       Swal.fire({
@@ -43,7 +43,7 @@ const Bookings = () => {
         confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
         if (result.isConfirmed) {
-          fetch(`http://localhost:5000/bookings/${id}`, {
+          fetch(`https://car-doctor-server-two-gilt.vercel.app/bookings/${id}`, {
             method: 'DELETE',
             
           })
@@ -66,7 +66,7 @@ const Bookings = () => {
     }
 
     const handleBookingConfirm = id => {
-      fetch(`http://localhost:5000/bookings/${id}`,{
+      fetch(`https://car-doctor-server-two-gilt.vercel.app/bookings/${id}`,{
         method:'PATCH',
         headers:{
           'content-type':'application/json'
